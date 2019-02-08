@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ScrollingText</string>
+    <string name="article_title">Article Title</string>
+    <string name="article_subtitle">Article Subtitle</string>
+</resources>
