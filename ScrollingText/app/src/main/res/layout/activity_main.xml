@@ -17,18 +17,21 @@
         android:textStyle="bold" />
 
     <TextView
+        android:id="@+id/article_subheading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/article_subheading"
         android:layout_below="@id/article_heading"
         android:padding="@dimen/padding_regular"
-        android:textAppearance="@android:style/TextAppearance.DeviceDefault"
-        android:text="@string/article_subtitle"/>
+        android:text="@string/article_subtitle"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault" />
 
     <TextView
+        android:id="@+id/article"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/article"
-        android:layout_below="@id/article_subheading"/>
+        android:layout_below="@id/article_subheading"
+        android:lineSpacingExtra="5sp"
+        android:padding="@dimen/padding_regular"
+        android:text="@string/article_text" />
 
 </RelativeLayout>
