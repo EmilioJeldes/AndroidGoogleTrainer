@@ -1,8 +1,8 @@
 package cl.ejeldes.droidcafe;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -11,6 +11,9 @@ import android.view.View;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static String message = "No items selected";
+    public static final String EXTRA_MESSAGE = "cl.ejeldes.MainActivity.MESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +26,9 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(MainActivity.this, OrderActivity.class);
+                intent.putExtra(EXTRA_MESSAGE, message);
+                startActivity(intent);
             }
         });
     }
@@ -52,7 +56,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void displayToast(String message) {
+
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+    }
+
+    public void showDonutOrder(View view) {
+        setMessage("a donut");
+        displayToast(getString(R.string.donut_order_message));
+    }
+
+    public void showIceCreamOrder(View view) {
+        setMessage("an icecream");
+        displayToast(getString(R.string.ice_cream_order_message));
+    }
+
+    public void showFroyoOrder(View view) {
+        setMessage("a froyo");
+        displayToast(getString(R.string.froyo_order_message));
+    }
+
+    public void setMessage(String msg) {
+        message = "You ordered " + msg;
     }
 
 }
